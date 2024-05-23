@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de IA - Galeria de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001f3f; /* Azul meia-noite */
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #7FDBFF; /* Azul claro */
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .image-card {
+            background-color: #39CCCC; /* Verde claro */
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .like-button {
+            background-color: #001f3f; /* Azul meia-noite */
+            border: none;
+            color: #ffffff;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .like-button:hover {
+            background-color: #39CCCC; /* Verde claro */
+        }
+        .like-count {
+            margin-top: 5px;
+            color: #7FDBFF; /* Azul claro */
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio de IA - Galeria de Imagens</h1>
+    <div class="gallery">
+        <div class="image-card">
+            <img src="mickey.jpg" alt="Imagem do Mickey">
+            <button class="like-button" onclick="likeImage(1)">Curtir</button>
+            <div class="like-count" id="like-count-1">Curtidas: 0</div>
+        </div>
+        <div class="image-card">
+            <img src="anjo.jpg" alt="Imagem do Anjo">
+            <button class="like-button" onclick="likeImage(2)">Curtir</button>
+            <div class="like-count" id="like-count-2">Curtidas: 0</div>
+        </div>
+    </div>
+
+    <script>
+        function likeImage(imageId) {
+            const likeCountElement = document.getElementById(`like-count-${imageId}`);
+            let likeCount = parseInt(likeCountElement.innerText.split(': ')[1]);
+            likeCount++;
+            likeCountElement.innerText = `Curtidas: ${likeCount}`;
+        }
+    </script>
+</body>
+</html>
